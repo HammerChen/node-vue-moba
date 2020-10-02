@@ -3,5 +3,6 @@ module.exports = (app) => {
   mongoose.connect('mongodb://localhost:32768/node-vue-moba', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   })
 }
