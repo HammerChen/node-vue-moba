@@ -36,7 +36,7 @@ export default {
   methods: {
     afterUpload(res) {
       this.$set(this.model, 'icon', res.url)
-      this.model.icon = res.url
+      // this.model.icon = res.url
     },
     async save() {
       // eslint-disable-next-line no-unused-vars
