@@ -11,8 +11,11 @@
             type="text"
             size="small"
             @click="$router.push(`/categories/edit/${scope.row._id}`)"
-          >编辑</el-button>
-          <el-button type="text" size="small" @click="remove(scope.row)">删除</el-button>
+            >编辑</el-button
+          >
+          <el-button type="text" size="small" @click="remove(scope.row)"
+            >删除</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
@@ -33,7 +36,7 @@ export default {
       this.items = res.data
     },
     async remove(row) {
-      this.$confirm(`是否确定删除分类'${row.name}'`, '提示', {
+      this.$confirm(`是否确定删除分类 '${row.name}'`, '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning',
@@ -56,5 +59,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>
