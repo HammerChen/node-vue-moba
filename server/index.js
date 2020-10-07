@@ -2,6 +2,8 @@ const express = require('express')
 
 const app = express()
 
+app.set('secret', 'ksdhy8732r3y42dskew834y7')
+
 app.use(require('cors')())
 app.use(express.json())
 app.use('/uploads', express.static(__dirname + '/uploads'))
