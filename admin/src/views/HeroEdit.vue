@@ -13,9 +13,10 @@
           <el-form-item label="头像">
             <el-upload
               class="avatar-uploader"
-              :action="$http.defaults.baseURL + '/upload'"
+              :action="uploadUrl"
+              :headers="getAuthHeaders()"
               :show-file-list="false"
-              :on-success="afterUpload"
+              :on-success="(res) => $set(item, 'icon', res.url)"
             >
               <img v-if="model.avatar" :src="model.avatar" class="avatar" />
               <i v-else class="el-icon-plus avatar-uploader-icon"></i>
@@ -105,7 +106,8 @@
               <el-form-item label="图标">
                 <el-upload
                   class="avatar-uploader"
-                  :action="$http.defaults.baseURL + '/upload'"
+                  :action="uploadUrl"
+                  :headers="getAuthHeaders()"
                   :show-file-list="false"
                   :on-success="(res) => $set(item, 'icon', res.url)"
                 >
@@ -150,15 +152,12 @@ export default {
       model: {
         name: '',
         avatar: '',
+        skills: [],
         scores: {},
       },
     }
   },
   methods: {
-    afterUpload(res) {
-      // this.$set(this.model, 'avatar', res.url)
-      this.model.avatar = res.url
-    },
     async save() {
       // eslint-disable-next-line no-unused-vars
       let res
